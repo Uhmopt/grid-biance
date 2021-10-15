@@ -1,0 +1,261 @@
+.icon-date {
+  display: flex;
+  align-items: center;
+  svg {
+    fill: #777;
+    margin-right: 10px;
+  }
+  span {
+    font-weight: normal;
+    font-size: 1.125rem;
+    color: $dark-gray;
+  }
+}
+.cell-table-id-label {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 180%;
+  color: $dark-gray;
+}
+.cell-table-grade {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  div {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+}
+.cell-team {
+  span {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  label {
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 180%;
+    text-transform: capitalize;
+  }
+}
+.cell-seller {
+  img {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  label {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 120%;
+  }
+}
+.cell-price {
+  span {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 180%;
+    &:last-child {
+      font-weight: 300;
+      font-size: 0.875rem;
+      line-height: 180%;
+    }
+  }
+}
+.cell-actions {
+  button {
+    &:first-child {
+      margin-right: 10px;
+    }
+    span {
+      font-weight: 400;
+    }
+  }
+}
+.top-tab-button {
+  overflow: hidden;
+  border: none;
+  color: #fff;
+  padding: 0 30px 10px;
+  background-color: transparent;
+  transition: all 0s !important;
+  div {
+    background-color: #0e6eb5;
+    position: relative;
+    padding: 6px 40px;
+    box-shadow: 3px 2px 9px #00000042;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -5px;
+      background-color: #0e6eb5;
+      width: 16px;
+      height: 42.5px;
+      margin-left: -10px;
+      transform: rotate(-23deg);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -5px;
+      background-color: #0e6eb5;
+      width: 16px;
+      height: 42.5px;
+      margin-right: -10px;
+      transform: rotate(23deg);
+    }
+    span {
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 118.5%;
+      text-align: center;
+      color: #ffffff;
+      transition: color 0.3s;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+// dark mode
+.dark {
+  .icon-date {
+    svg {
+      fill: #ccc;
+    }
+    span {
+      color: #eee;
+    }
+  }
+  .cell-market-table {
+    .data-table-short {
+      label {
+        color: #eee !important;
+      }
+      svg {
+        fill: $blue-color !important;
+      }
+    }
+    .dd__wrapper {
+      border-color: #eee !important;
+      .dd__selectControl {
+        border-color: #eee;
+        color: #eee;
+        background-color: transparent;
+      }
+    }
+  }
+  .cell-coordinates {
+    border: 1px solid #ccc;
+    span {
+      color: #eee;
+    }
+  }
+  .cell-table-id-label {
+    color: #eee;
+  }
+  .cell-seller {
+    img {
+      border: 2px solid #aaa;
+    }
+    span {
+      color: #eee;
+    }
+  }
+  .cell-price {
+    span {
+      margin-left: 5px;
+      color: #eee;
+    }
+  }
+  .cell-actions {
+    button {
+      border-color: #eee;
+      background-color: transparent;
+      span {
+        color: #eee;
+      }
+      svg {
+        fill: $blue-color !important;
+      }
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+@media (max-width: $device-sm) {
+  .top-tab-button {
+    margin: 0 -3px !important;
+    padding: 0 8px 10px;
+    div {
+      padding: 6px 10px;
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        position: relative;
+        z-index: 1;
+        white-space: nowrap;
+      }
+      &::after,
+      &::before {
+        top: -13px;
+      }
+
+      &::before {
+        left: 5px;
+        transform: rotate(-12deg);
+      }
+
+      &::after {
+        right: 5px;
+        transform: rotate(12deg);
+      }
+    }
+  }
+  .cell-team {
+    label {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: $device-xs) {
+  .cell-team label {
+    font-size: 0.8rem;
+  }
+  .detail-tab .active div::after,
+  .detail-tab .active div::before {
+    top: -17px !important;
+  }
+  .top-tab-button {
+    margin: 0 -3px !important;
+    padding: 0 8px 10px;
+    div {
+      padding: 6px 10px;
+      span {
+        font-size: 14px;
+      }
+      &::after,
+      &::before {
+        top: -13px;
+      }
+
+      &::before {
+        left: 5px;
+        transform: rotate(-12deg);
+      }
+
+      &::after {
+        right: 5px;
+        transform: rotate(12deg);
+      }
+    }
+  }
+}

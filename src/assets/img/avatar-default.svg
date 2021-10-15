@@ -1,0 +1,17 @@
+<svg
+  width="229"
+  height="229"
+  viewBox="0 0 229 229"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+<rect width="229" height="229" rx="114.5" fill="#CCCCCC" />
+<path
+    d="M77 144C100.082 157.841 131.52 156.816 155 144"
+    stroke="white"
+    stroke-width="12"
+    stroke-linecap="round"
+  />
+<circle cx="76.5" cy="97.5" r="11.5" fill="white" />
+<ellipse cx="153" cy="97.5" rx="12" ry="11.5" fill="white" />
+</svg>

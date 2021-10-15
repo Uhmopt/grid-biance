@@ -1,0 +1,24 @@
+ARG NGINX_VERSION
+ARG NODE_VERSION
+
+# build environment
+FROM node:${NODE_VERSION}-buster as builder
+
+WORKDIR /var/www/frontend
+
+ENV PATH /var/www/frontend/node_modules/.bin:$PATH
+
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install -g npm
+RUN npm ci
+RUN npm install react-scripts
+
+COPY . ./
+
+RUN npm run build
+
+# production environment
+FROM nginx:${NGINX_VERSION}-alpine
+COPY --from=builder /var/www/frontend/build /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]
