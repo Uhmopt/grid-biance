@@ -1,0 +1,9 @@
+How to set up frontend development environment:
+
+1) Get added to private repository https://github.com/bscgrid/Frontend
+
+2) Clone repository https://github.com/bscgrid/Frontend.git
+
+3) Copy ".env" file from this zip file into your local repository (".env" goes in the root directory)
+
+4) Execute "npm start" command in the root directory

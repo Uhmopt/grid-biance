@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+/* just to be sure these are full screen*/
+html, body { 
+    width: 100%; 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* To remove the scrollbars */
+canvas { 
+    display: block; 
+}
+
+#canvas_container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #509FF9;
+    height: 88px;
+    color: white;
+}
+
+.App-header a, footer a {
+    float: left;
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.App-header a:not(:first-child) {
+    margin-top: 18px;
+    padding: 14px 16px;
+}
+
+.App-header a:not(:first-child):hover, footer a:hover {
+    background-color: #FFFFFF;
+    color: #509FF9;
+}
+
+#root {
+    min-height: 100%;
+    position: relative;
+}
+
+#content_wrapper.footer_padding {
+    padding-bottom: 44px;
+}
+
+footer {
+    background-color: #509FF9;
+    color: white;
+    height: 44px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    margin-top: 2px;
+    padding: 10px 16px;
+}
+
+a#burger {
+    display: none;
+    cursor: pointer;
+}
+
+.App-header a.active {
+    background-color: #FFFFFF;
+    color: #509FF9;
+}
+
+a#connection {
+    background-color: #FFFFFF;
+    color: #509FF9;
+    float: right;
+    margin-right: 10px;
+    text-transform: none;
+}
+
+a#connection span.label {
+    display: flex;
+    position: relative;
+    top: -4px;
+    font-size: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+a#connection.inactive {
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* When the screen is less than 965 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 965px) {
+    .App-header a:not(:first-child) {
+        display: none;
+    }
+
+    .App-header.responsive {
+        position: relative;
+    }
+
+    .App-header.responsive a {
+        margin-top: 0;
+        background-color: #509FF9;
+        float: none;
+        display: block;
+        text-align: left;
+        border-radius: 0;
+    }
+
+    a#burger, a#connection {
+        float: right;
+        display: block;
+        border-radius: 5px;
+        margin-right: 2px;
+        text-align: center;
+    }
+
+    a#burger {
+        cursor: pointer;
+    }
+
+    a#connection {
+        padding: 9px 16px;
+    }
+
+    a#connection.inactive {
+        padding: 14px 16px;
+    }
+
+    .App-header.responsive a#burger, .App-header.responsive a#connection {
+        position: absolute;
+        margin-top: 18px;
+        top: 0;
+    }
+    
+    .App-header.responsive a#burger {
+        right: 0;
+    }
+
+    .App-header.responsive a#connection {
+        right: 50px;
+    }
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.progress {
+    position: fixed!important;
+    top: 50%;
+    margin-top: -100px;
+}
+
+.progress-pie-chart {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    position: relative;
+}
+
+.ppc-progress {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    clip: rect(0, 200px, 200px, 100px);
+}
+.ppc-progress .ppc-progress-fill {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    clip: rect(0, 100px, 200px, 0);
+    background-color: #1ECD97;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.progress-pie-chart.gt-50 {
+    background-color: #1ECD97;
+}
+.gt-50 .ppc-progress {
+    clip: rect(0, 100px, 200px, 0);
+}
+.gt-50 .ppc-progress .ppc-progress-fill {
+    clip: rect(0, 200px, 200px, 100px);
+    background-color: #E5E5E5;
+}
+
+.ppc-percents {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - 173.91304px/2);
+    top: calc(50% - 173.91304px/2);
+    width: 173.91304px;
+    height: 173.91304px;
+    background-color: #fff;
+    text-align: center;
+    display: table;
+}
+.ppc-percents span {
+    display: block;
+    font-size: 2.6em;
+    font-weight: bold;
+    color: #1ECD97;
+}
+
+.pcc-percents-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+[class*='col-'] {
+    float: left;
+}
+[class*='col-'] {
+    padding-right: 20px;
+}
+[class*='col-']:last-of-type {
+    padding-right: 0;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.grid:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.grid-pad {
+    padding: 20px 0 20px 20px;
+}
+.grid-pad > [class*='col-']:last-of-type {
+    padding-right: 20px;
+}
+
+.col-2-3 {
+    width: 66.66%;
+}
+.col-1-3 {
+    width: 33.33%;
+}
+.col-1-2 {
+    width: 50%;
+}
+.col-1-4 {
+    width: 25%;
+}
+.col-1-8 {
+    width: 12.5%;
+}
+
+.bodyContent {
+    margin: 10px;
+    color: #2F2D2E;
+}
+
+div.cellHeader, div.cellRow {
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 5px;
+    padding: 20px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+div.cellHeader div, div.cellRow div {
+    padding: 5px;
+    display: inline-block;
+}
+
+div.cellHeader div.gridCellId, div.cellRow div.gridCellId {
+    width: 120px;
+}
+
+div.cellHeader div.properties, div.cellRow div.properties {
+    width: 300px;
+}
+
+div.cellHeader div.coordinates, div.cellRow div.coordinates {
+    width: 150px;
+}
+
+div.cellHeader div.actions {
+    width: 160px;
+}
+
+div.cellRow div.sell, div.cellRow div.view {
+    width: 60px;
+    padding-right: 5px;
+}
+
+div.cellViewContainer {
+    padding: 10px;
+}
+
+div.cellViewContainer div.building {
+    margin-bottom: 10px;
+}
+
+div.cellViewContainer div.building button {
+    margin-left: 20px;
+}
+
+div.cellViewContainer div.cancel {
+    margin-top: 20px;
+}
+
+div.actionData {
+    margin-bottom: 20px;
+}
+
+.colourGrid {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+div.colourGrid > div {
+    padding: 10px;
+    height: 40px;
+}
+
+.team1Background { background-color: #ec544b; }
+.team2Background { background-color: #ffaced; }
+.team3Background { background-color: #7e33c9; }
+.team4Background { background-color: #00a2e8; }
+.team5Background { background-color: #64A66F; }
+.team6Background { background-color: #acb9ff; }
+.team7Background { background-color: #ffa959; }
+.team8Background { background-color: #b18d72; }
+#currentTeam { text-align: center; }
+
+.team1Background, .team2Background, .team3Background, .team4Background,
+.team5Background, .team6Background, .team7Background, .team8Background {
+    padding: 2px;
+}
+
+.team1Background.active, .team2Background.active, .team3Background.active, .team4Background.active,
+.team5Background.active, .team6Background.active, .team7Background.active, .team8Background.active {
+    border: 4px solid #000000;
+    padding: 0;
+}
+
+.teamLeaderboard {
+    float: left;
+    margin-right: 10px;
+    height: 125px;
+    width: 25px;
+}
+
+div.auctionHeader, div.auctionRow {
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 5px;
+    padding: 20px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+div.auctionHeader {
+    font-weight: bold;
+}
+
+div.auctionHeader div, div.auctionRow div {
+    padding: 5px;
+    display: inline-block;
+}
+
+div.auctionHeader div.gridCellId, div.auctionRow div.gridCellId {
+    width: 70px;
+    text-align: right;
+}
+
+div.auctionHeader div.coordinates, div.auctionRow div.coordinates {
+    text-align: center;
+    width: 100px;
+}
+
+div.auctionRow div.coordinates {
+    background-color: #F6AE2D;
+    border-radius: 5px;
+}
+
+div.auctionHeader div.grade, div.auctionRow div.grade {
+    text-align: center;
+    width: 80px;
+}
+
+div.auctionHeader div.colour, div.auctionRow div.colour {
+    text-align: center;
+    width: 80px;
+}
+
+div.auctionHeader div.seller, div.auctionRow div.seller {
+    text-align: center;
+    width: 140px;
+}
+
+div.auctionHeader div.price, div.auctionRow div.price {
+    width: 100px;
+}
+
+div.auctionHeader div.buy, div.auctionRow div.buy {
+    width: 80px;
+}
+
+.colour_main {
+    background-color: #509FF9;
+}
+.colour_light {
+    background-color: #6DA34D;
+}
+.colour_dark {
+    background-color: #2F2D2E;
+}
+.colour_secondary {
+    background-color: #FFFFFF;
+}
+.colour_highlight {
+    background-color: #F6AE2D;
+}
+
+.error {
+    color: #DD0000;
+}
+
+.admin div button {
+    margin-bottom: 10px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    cursor: pointer;
+}
+
+ul.pagination {
+    padding: 0;
+}
+
+.pagination li a {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2F2D2E;
+    color: #2F2D2E;
+    user-select: none;
+}
+.pagination li a:focus {
+    outline: none;
+}
+
+.pagination li.active, .pagination li.active a {
+    background: #F6AE2D;
+}
+
+.pagination li.disabled a {
+    color: rgb(198, 197, 202);
+    border: 1px solid rgb(198, 197, 202);
+    cursor: default;
+}

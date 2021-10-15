@@ -1,0 +1,101 @@
+.tab-container {
+  .tab-buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .tab-button {
+      height: 45px;
+      cursor: pointer;
+      border-radius: 12px 12px 0px 0px;
+      box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.25);
+      white-space: nowrap;
+      margin: 40px 20px 20px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      span {
+        color: $secondary-color;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2px 40px;
+        text-transform: uppercase;
+      }
+    }
+
+    .disable {
+      z-index: 1;
+    }
+
+    .active {
+      height: 65px;
+      box-shadow: 0px -4px 9px rgba(0, 0, 0, 0.25);
+      margin: 20px;
+      z-index: 3;
+      span {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 3px 30px 6px 30px;
+      }
+    }
+  }
+
+  .tab-line {
+    margin-top: -39px;
+    height: 2px;
+    background-color: $white-gray;
+    z-index: 2;
+  }
+
+  .tab-contents {
+    width: 100%;
+    .tab-content {
+      width: 100%;
+    }
+  }
+}
+.dark {
+  .tab-container {
+    background: #444 !important;
+    .tab-buttons {
+      .tab-button {
+        // box-shadow: 0px -4px 6px rgb(255, 255, 255, 0.25);
+        background-color: #444 !important;
+        span {
+          color: white;
+        }
+      }
+      .active {
+        span {
+          color: white;
+        }
+      }
+    }
+
+    .tab-line {
+      background-color: $light-gray;
+    }
+  }
+}
+
+@media (max-width: $device-xs) {
+  .tab-container .tab-buttons .active span {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .tab-container .tab-buttons .tab-button span {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .tab-container .tab-buttons .tab-button {
+    height: 36px;
+  }
+  .tab-container .tab-buttons .active {
+    height: 50px;
+  }
+  .tab-container .tab-line {
+    margin-top: -42px;
+  }
+}

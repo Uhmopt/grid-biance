@@ -1,0 +1,78 @@
+{
+    "gasPrice": 5,
+    "mining": {
+        "instanceTotalTokens": 1000,
+        "instanceIntervalMinutes": 10,
+        "rewards": [
+            20,
+            16,
+            14,
+            12,
+            10,
+            8,
+            6,
+            4
+        ],
+        "BSCGridTeamPercentage": 10
+    },
+    "teamColours": {
+        "EC544B": 0,
+        "FFACED": 1,
+        "7E33C9": 2,
+        "00A2E8": 3,
+        "64A66F": 4,
+        "ACB9FF": 5,
+        "FFA959": 6,
+        "FFD300": 7
+    },
+    "team": [
+        {
+            "name": "Red Rocketeers",
+            "colour": "EC544B",
+            "color":"#ec544b"
+        },
+        {
+            "name": "Pink Princesses",
+            "colour": "FFACED",
+            "color":"#ffaced"
+        },
+        {
+            "name": "Purple Pirates",
+            "colour": "7E33C9",
+            "color":"#7e33c9"
+        },
+        {
+            "name": "Blue Ballers",
+            "colour": "00A2E8",
+            "color":"#00A2E8"
+        },
+        {
+            "name": "Green Goblins",
+            "colour": "64A66F",
+            "color":"#64a66f"
+        },
+        {
+            "name": "Lavender Llamas",
+            "colour": "ACB9FF",
+            "color":"#acb9ff"
+        },
+        {
+            "name": "Orange Outlaws",
+            "colour": "FFA959",
+            "color":"#FFA959"
+        },
+        {
+            "name": "Mustard Magicians",
+            "colour": "FFD300",
+            "color":"#ffd300"
+        }
+    ],
+    "map": {
+        "maxCellsX": 20,
+        "maxCellsY": 10,
+        "cellMinWidth": 24,
+        "cellMinHeight": 24,
+        "cellSpacing": 2,
+        "cellMargin": 2
+    }
+}

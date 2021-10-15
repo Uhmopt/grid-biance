@@ -1,0 +1,20 @@
+How to connect to Binance Smart Chain testnet:
+
+1) Download and setup Metamask browser extension (https://metamask.io/)
+
+2) In Metamask, go to Settings -> Networks -> Add Network
+
+3) Add Testnet details as below:
+
+Network Name: Smart Chain - Testnet
+New RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
+ChainID: 97
+Symbol: BNB
+Block Explorer URL: https://testnet.bscscan.com
+
+	Full guide (only needed if you have problems):
+	https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain
+
+4) Go to https://testnet.binance.org/faucet-smart and paste your Metamask address then choose 'Give me BNB' -> 6.25 BNB
+
+5) In the BSC-Grid frontend, you can now click the "Connect" button to use your address to interact with the website (buy CELLs on the marketplace, etc)

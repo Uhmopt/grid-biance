@@ -1,0 +1,53 @@
+.footer {
+  background: linear-gradient(180deg, #095892 0%, #0e6eb5 39.1%);
+  position: absolute;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  z-index: 3;
+  &::before {
+    position: absolute;
+    content: "";
+    height: 5px;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #0e6eb5;
+  }
+  .footer-linker {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    .footer-button {
+      margin-right: 45px;
+      margin-left: 45px;
+      button {
+        background-color: transparent;
+        border: none;
+        &:hover {
+          svg {
+            fill: #ccc;
+          }
+        }
+      }
+    }
+  }
+}
+.footer.dark {
+  background: linear-gradient(180deg, #1c1c1c 0%, #262626 39.1%);
+  &::before {
+    background-color: #777;
+    height: 2px;
+  }
+}
+@media (max-width: $device-xs) {
+  .footer .footer-linker {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .footer-button {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,500 @@
+.hero-banner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(175.1deg, #b7d8ff 3.95%, rgba(255, 255, 255, 0) 67.18%);
+  position: relative;
+  z-index: 2;
+}
+.hero-banner-back {
+  position: absolute;
+  width: 100%;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  bottom: 0;
+  z-index: 1;
+  img {
+    width: 100%;
+  }
+}
+.hero-simbole-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 150px;
+  flex-wrap: wrap;
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  z-index: 4;
+  .hero-simbole-text-item {
+    width: 110px;
+    height: 110px;
+    border-radius: 8px;
+    font-size: 64px;
+    align-items: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    span {
+      color: #fff;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 200px;
+      transition: all 0.3s !important;
+      background: hsla(0, 0%, 100%, 0.3);
+      transform: translate(-110px, -50px) rotate(45deg);
+      animation-name: buttonShine;
+      animation-duration: 8s;
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-iteration-count: infinite;
+    }
+    &:nth-child(1) {
+      &:before {
+        animation-delay: 9.8s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(2) {
+      &:before {
+        animation-delay: 9.9s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(3) {
+      &:before {
+        animation-delay: 10s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(4) {
+      &:before {
+        animation-delay: 10.1s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(5) {
+      &:before {
+        animation-delay: 10.2s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(6) {
+      &:before {
+        animation-delay: 10.3s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(7) {
+      &:before {
+        animation-delay: 10.4s;
+        animation-duration: 10s;
+      }
+    }
+    &:nth-child(8) {
+      &:before {
+        animation-delay: 10.5s;
+        animation-duration: 10s;
+      }
+    }
+  }
+}
+.motion-clouds {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  .motion-cloud-1 {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    animation: cloudmotion1 13s;
+    animation-iteration-count: infinite;
+  }
+  .motion-cloud-2 {
+    position: absolute;
+    left: 50%;
+    top: 8%;
+    animation: cloudmotion1 17s;
+    animation-iteration-count: infinite;
+  }
+  .motion-cloud-3 {
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    animation: cloudmotion1 15s;
+    animation-iteration-count: infinite;
+  }
+}
+.hero-banner-guide {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  top: auto;
+  z-index: 5;
+  background-color: $secondary-color;
+  p {
+    color: #fff;
+    font-weight: 500;
+    padding: 0 15px;
+    span {
+      margin-left: 5px;
+      font-weight: 300;
+      a {
+        font-weight: 500;
+        color: #fff;
+      }
+    }
+  }
+}
+.what-is-token {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .what-token-img {
+    width: 45%;
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .what-token-content {
+    width: calc(55% - 30px);
+    padding-right: 15px;
+    padding-left: 15px;
+    h2 {
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 81px;
+      color: $primary-color;
+      margin: 10px 0;
+    }
+    p {
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 200%;
+      color: $light-gray;
+      margin: 10px 0;
+    }
+  }
+}
+.join-team-section {
+  background: linear-gradient(180deg, #c2edff 0%, #ffffff 39.82%);
+  position: relative;
+  padding-bottom: 100px;
+  .join-team-content {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    h2 {
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 81px;
+      color: $primary-color;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 200%;
+      color: $dark-gray;
+      padding-right: 15px;
+      padding-left: 15px;
+      a {
+        font-weight: 500;
+        text-decoration: underline;
+        color: $dark-gray;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+    .button-join-team {
+      padding: 10px 40px;
+      font-size: 1.75rem;
+      line-height: 24px;
+      text-align: center;
+      border: 3px solid #214998;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      margin: 50px auto;
+      position: relative;
+      svg {
+        position: relative;
+        z-index: 3;
+      }
+      span {
+        text-transform: uppercase;
+        color: $primary-color;
+        margin-left: 10px;
+        font-weight: 500;
+        z-index: 3;
+      }
+      .button-hover-effect {
+        position: absolute;
+        left: -10px;
+        top: 0;
+        height: 100%;
+        background: linear-gradient(92.18deg, #34daff 1.17%, #beff7d 30.6%, #f6f2ff 65.8%, #c624ff 102.06%);
+        box-sizing: border-box;
+        box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+        opacity: 0;
+        width: 100%;
+        z-index: 1;
+      }
+      transition: all 0.3s;
+      &:hover {
+        .button-hover-effect {
+          transition: all 0.3s;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .join-team-back {
+    width: 100%;
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.page-not-found-back {
+  min-height: 100vh;
+  overflow: hidden;
+  .notfound-back {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 1;
+  }
+  .notfound-back-mobile {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 1;
+    display: none;
+  }
+}
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 1.25rem;
+    color: $secondary-color;
+    margin-bottom: 30px;
+    padding-top: 30px;
+  }
+  a {
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 1.25rem;
+    border: 2px solid $primary-color;
+    padding: 10px 30px;
+    border-radius: 8px;
+  }
+}
+.dark {
+  .page-not-found-back {
+    background-color: $dark-gray;
+    h1 {
+      color: #eee;
+    }
+    a {
+      border-color: #ddd;
+      color: #ddd;
+    }
+  }
+  .hero-banner {
+    background: linear-gradient(180.23deg, #001631 0.2%, #212121 93.86%);
+    p {
+      color: #eee;
+    }
+  }
+  .hero-banner-guide {
+    background-color: #000;
+    p {
+      color: #eee;
+      span {
+        a {
+          color: #eee;
+        }
+      }
+    }
+  }
+  .what-is-token-section {
+    background-color: $dark-gray;
+    .what-is-token {
+      .what-token-content {
+        h2 {
+          color: $section-dark-title-color;
+        }
+        p {
+          color: #eee;
+        }
+      }
+    }
+  }
+  .join-team-section {
+    background: linear-gradient(180deg, #110035 0%, #002256 101.5%);
+    .join-team-content {
+      h2 {
+        color: $section-dark-title-color;
+      }
+      p {
+        color: #eee;
+        a {
+          color: #eee;
+          &:hover {
+            color: $primary-dark-hover-color;
+          }
+        }
+      }
+      .button-join-team {
+        border: 3px solid #214998;
+        box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
+        svg {
+          position: relative;
+          z-index: 3;
+        }
+        span {
+          color: $primary-color;
+        }
+        .button-hover-effect {
+          background: linear-gradient(92.18deg, #34daff 1.17%, #beff7d 30.6%, #f6f2ff 65.8%, #c624ff 102.06%);
+          box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+  }
+}
+@media (max-width: $device-lg) {
+  .header .header-content .header-nav .header-nav-menu .nav-item {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .hero-simbole-text .hero-simbole-text-item {
+    width: 90px;
+    height: 90px;
+    span {
+      font-size: 56px;
+    }
+  }
+}
+@media (max-width: $device-md) {
+  .hero-simbole-text .hero-simbole-text-item {
+    width: 70px;
+    height: 70px;
+    span {
+      font-size: 3rem;
+    }
+  }
+  .what-is-token {
+    .what-token-img,
+    .what-token-content {
+      width: calc(50% - 30px);
+    }
+  }
+}
+@media (max-width: $device-sm) {
+  .what-is-token {
+    flex-direction: column;
+    .what-token-img,
+    .what-token-content {
+      width: calc(100% - 30px);
+      h2 {
+        text-align: center;
+        font-size: 3rem;
+      }
+    }
+  }
+  .page-not-found-back {
+    .notfound-back {
+      display: none;
+    }
+    .notfound-back-mobile {
+      display: block;
+      width: 100%;
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+@media (max-width: $device-xs) {
+  .hero-simbole-text .hero-simbole-text-item {
+    width: 60px;
+    height: 60px;
+    span {
+      font-size: 2.5rem;
+    }
+  }
+  .hero-banner {
+    padding-bottom: 80px;
+  }
+  .hero-banner-guide p {
+    font-size: 0.75rem;
+    span {
+      font-size: 0.75rem;
+    }
+  }
+  .footer .footer-linker .footer-button {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .button-big-round {
+    font-size: 1.25rem;
+  }
+  .join-team-section .join-team-content .button-join-team {
+    padding: 5px 40px;
+    line-height: 24px;
+  }
+}
+@keyframes cloudmotion1 {
+  0% {
+    transform: rotate(0deg) translateX(25px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(25px) rotate(-360deg);
+  }
+}

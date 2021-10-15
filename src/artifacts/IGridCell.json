@@ -1,0 +1,3369 @@
+{
+  "contractName": "IGridCell",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "approved",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "ApprovalForAll",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getApproved",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        }
+      ],
+      "name": "isApprovedForAll",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_approved",
+          "type": "bool"
+        }
+      ],
+      "name": "setApprovalForAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenByIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenOfOwnerByIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cellId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCell",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "cellId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "int32[2]",
+          "name": "coordinates",
+          "type": "int32[2]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "properties",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "team",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_initialProperties",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_initialTeam",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "_initialOwner",
+          "type": "address"
+        }
+      ],
+      "name": "createCell",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cellId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cellId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_properties",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCellGrade",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "grade",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cellId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCellLastTeamEarningsPerStake",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "lastTotalEarningsPerStake",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_grade",
+          "type": "uint8"
+        }
+      ],
+      "name": "getStake",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "stake",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "team",
+          "type": "uint8"
+        }
+      ],
+      "name": "getTeamStake",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "teamStake",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "team",
+          "type": "uint8"
+        }
+      ],
+      "name": "getTeamEarnings",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "teamEarnings",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "teamEarningsPerStake",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllTeamEarnings",
+      "outputs": [
+        {
+          "internalType": "uint256[8]",
+          "name": "teamEarnings",
+          "type": "uint256[8]"
+        },
+        {
+          "internalType": "uint256[8]",
+          "name": "teamEarningsPerStake",
+          "type": "uint256[8]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllTeamStakes",
+      "outputs": [
+        {
+          "internalType": "uint256[8]",
+          "name": "teamStake",
+          "type": "uint256[8]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cellId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_newTeam",
+          "type": "uint8"
+        }
+      ],
+      "name": "setTeam",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[8]",
+          "name": "_newTeamTotalEarnings",
+          "type": "uint256[8]"
+        },
+        {
+          "internalType": "uint256[8]",
+          "name": "_newTeamTotalEarningsPerStake",
+          "type": "uint256[8]"
+        }
+      ],
+      "name": "setAllTeamEarnings",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cellId",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateCellLastTeamEarningsPerStake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.1+commit.df193b15\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_initialProperties\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"_initialTeam\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"_initialOwner\",\"type\":\"address\"}],\"name\":\"createCell\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_cellId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllTeamEarnings\",\"outputs\":[{\"internalType\":\"uint256[8]\",\"name\":\"teamEarnings\",\"type\":\"uint256[8]\"},{\"internalType\":\"uint256[8]\",\"name\":\"teamEarningsPerStake\",\"type\":\"uint256[8]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllTeamStakes\",\"outputs\":[{\"internalType\":\"uint256[8]\",\"name\":\"teamStake\",\"type\":\"uint256[8]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cellId\",\"type\":\"uint256\"}],\"name\":\"getCell\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"cellId\",\"type\":\"uint256\"},{\"internalType\":\"int32[2]\",\"name\":\"coordinates\",\"type\":\"int32[2]\"},{\"internalType\":\"uint256\",\"name\":\"properties\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"team\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cellId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_properties\",\"type\":\"uint256\"}],\"name\":\"getCellGrade\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"grade\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cellId\",\"type\":\"uint256\"}],\"name\":\"getCellLastTeamEarningsPerStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"lastTotalEarningsPerStake\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_grade\",\"type\":\"uint8\"}],\"name\":\"getStake\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"stake\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"team\",\"type\":\"uint8\"}],\"name\":\"getTeamEarnings\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"teamEarnings\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamEarningsPerStake\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"team\",\"type\":\"uint8\"}],\"name\":\"getTeamStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"teamStake\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[8]\",\"name\":\"_newTeamTotalEarnings\",\"type\":\"uint256[8]\"},{\"internalType\":\"uint256[8]\",\"name\":\"_newTeamTotalEarningsPerStake\",\"type\":\"uint256[8]\"}],\"name\":\"setAllTeamEarnings\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cellId\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"_newTeam\",\"type\":\"uint8\"}],\"name\":\"setTeam\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"tokenByIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"tokenOfOwnerByIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cellId\",\"type\":\"uint256\"}],\"name\":\"updateCellLastTeamEarningsPerStake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the number of tokens in ``owner``'s account.\"},\"getApproved(uint256)\":{\"details\":\"Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.\"},\"isApprovedForAll(address,address)\":{\"details\":\"Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}\"},\"ownerOf(uint256)\":{\"details\":\"Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"tokenByIndex(uint256)\":{\"details\":\"Returns a token ID at a given `index` of all the tokens stored by the contract. Use along with {totalSupply} to enumerate all tokens.\"},\"tokenOfOwnerByIndex(address,uint256)\":{\"details\":\"Returns a token ID owned by `owner` at a given `index` of its token list. Use along with {balanceOf} to enumerate all of ``owner``'s tokens.\"},\"totalSupply()\":{\"details\":\"Returns the total amount of tokens stored by the contract.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.\"}},\"title\":\"GridCell Interface Detection\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/luke/BSC-Grid/Solidity/contracts/IGridCell.sol\":\"IGridCell\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/luke/BSC-Grid/Solidity/contracts/IGridCell.sol\":{\"keccak256\":\"0x92fdaee683234ddde54a66669b463d30d7c02a0de4c95deefcd42b61534f753a\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://9314f80f28eb486d7c4547bf724c52438a118974200f1f3eac29ec3f88dd3b3a\",\"dweb:/ipfs/QmUs1two3tZGcw6Wd6NTNKacuQPa6UrukyrQmUTRdHrL3r\"]},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xc1c941ad1e580b4623007305921efe2f26fc7320a4edc226234dd707c658a428\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://473e11d739868e0d9f48254ccf84ba63290d6a2321d59a37b74c244a27f9cad7\",\"dweb:/ipfs/QmUGzDmecP936jzgM7SYyGwR1YgBGsveoHHJTbDfB8jbGF\"]},\"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol\":{\"keccak256\":\"0xccb7e6475afcb1c5cb13b3fbf1329c10b93620a9b66393388066683915271a78\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df5776161e3226ac31bfb919dfe5f42e173a08293fadb4ffa90ffb55e76869d7\",\"dweb:/ipfs/QmXtKfvWj1v6oha8urbnw4RmjSpmQjZsGGqK5qk5trK4nH\"]},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0xa28007762d9da9db878dd421960c8cb9a10471f47ab5c1b3309bfe48e9e79ff4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://796ab6e88af7bf0e78def0f059310c903af6a312b565344e0ff524a0f26e81c6\",\"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-3.0-or-later\r\npragma solidity ^0.8.1;\r\n\r\nimport \"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol\";\r\n\r\n/// @title GridCell Interface Detection\r\ninterface IGridCell is IERC721Enumerable {\r\n    function getCell(uint256 _cellId) external view returns (\r\n        uint256 cellId, \r\n        int32[2] memory coordinates, \r\n        uint256 properties, \r\n        uint8 team, \r\n        address owner\r\n    );\r\n    function createCell(\r\n        uint256 _initialProperties, \r\n        uint8 _initialTeam, \r\n        address _initialOwner\r\n    ) external returns (uint256 _cellId);\r\n    function getCellGrade(uint256 _cellId, uint256 _properties) external pure returns (uint8 grade);\r\n    function getCellLastTeamEarningsPerStake(uint256 _cellId) external view returns (uint256 lastTotalEarningsPerStake);\r\n    function getStake(uint8 _grade) external pure returns (uint8 stake);\r\n    function getTeamStake(uint8 team) external view returns (uint256 teamStake);\r\n    function getTeamEarnings(uint8 team) external view returns (uint256 teamEarnings, uint256 teamEarningsPerStake);\r\n    function getAllTeamEarnings() external view returns (uint256[8] memory teamEarnings, uint256[8] memory teamEarningsPerStake);\r\n    function getAllTeamStakes() external view returns (uint256[8] memory teamStake);\r\n    function setTeam(uint256 _cellId, uint8 _newTeam) external;\r\n    function setAllTeamEarnings(\r\n        uint256[8] memory _newTeamTotalEarnings, \r\n        uint256[8] memory _newTeamTotalEarningsPerStake\r\n    ) external;\r\n    function updateCellLastTeamEarningsPerStake(uint256 _cellId) external;\r\n}",
+  "sourcePath": "/home/luke/BSC-Grid/Solidity/contracts/IGridCell.sol",
+  "ast": {
+    "absolutePath": "/home/luke/BSC-Grid/Solidity/contracts/IGridCell.sol",
+    "exportedSymbols": {
+      "IERC165": [
+        5090
+      ],
+      "IERC721": [
+        4091
+      ],
+      "IERC721Enumerable": [
+        4478
+      ],
+      "IGridCell": [
+        2501
+      ]
+    },
+    "id": 2502,
+    "license": "GPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2388,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".1"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "46:23:6"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "id": 2389,
+        "nodeType": "ImportDirective",
+        "scope": 2502,
+        "sourceUnit": 4479,
+        "src": "73:79:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2391,
+              "name": "IERC721Enumerable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 4478,
+              "src": "220:17:6"
+            },
+            "id": 2392,
+            "nodeType": "InheritanceSpecifier",
+            "src": "220:17:6"
+          }
+        ],
+        "contractDependencies": [
+          4091,
+          4478,
+          5090
+        ],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2390,
+          "nodeType": "StructuredDocumentation",
+          "src": "156:41:6",
+          "text": "@title GridCell Interface Detection"
+        },
+        "fullyImplemented": false,
+        "id": 2501,
+        "linearizedBaseContracts": [
+          2501,
+          4478,
+          4091,
+          5090
+        ],
+        "name": "IGridCell",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "206848f6",
+            "id": 2409,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCell",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2394,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "262:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2393,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "262:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "261:17:6"
+            },
+            "returnParameters": {
+              "id": 2408,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2397,
+                  "mutability": "mutable",
+                  "name": "cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "312:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2396,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2401,
+                  "mutability": "mutable",
+                  "name": "coordinates",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "338:27:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_int32_$2_memory_ptr",
+                    "typeString": "int32[2]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2398,
+                      "name": "int32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "338:5:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_int32",
+                        "typeString": "int32"
+                      }
+                    },
+                    "id": 2400,
+                    "length": {
+                      "hexValue": "32",
+                      "id": 2399,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "344:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_2_by_1",
+                        "typeString": "int_const 2"
+                      },
+                      "value": "2"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "338:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_int32_$2_storage_ptr",
+                      "typeString": "int32[2]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2403,
+                  "mutability": "mutable",
+                  "name": "properties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "377:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2402,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "377:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2405,
+                  "mutability": "mutable",
+                  "name": "team",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "407:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2404,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "407:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2407,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "429:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2406,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "429:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "301:148:6"
+            },
+            "scope": 2501,
+            "src": "245:205:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "b408b355",
+            "id": 2420,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createCell",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2416,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2411,
+                  "mutability": "mutable",
+                  "name": "_initialProperties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "486:26:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "486:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2413,
+                  "mutability": "mutable",
+                  "name": "_initialTeam",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "524:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2412,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "524:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2415,
+                  "mutability": "mutable",
+                  "name": "_initialOwner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "554:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2414,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "554:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "475:107:6"
+            },
+            "returnParameters": {
+              "id": 2419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2418,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "601:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2417,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "601:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "600:17:6"
+            },
+            "scope": 2501,
+            "src": "456:162:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "a7278549",
+            "id": 2429,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCellGrade",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2425,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2422,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2429,
+                  "src": "646:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2421,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "646:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2424,
+                  "mutability": "mutable",
+                  "name": "_properties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2429,
+                  "src": "663:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2423,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "663:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "645:38:6"
+            },
+            "returnParameters": {
+              "id": 2428,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2427,
+                  "mutability": "mutable",
+                  "name": "grade",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2429,
+                  "src": "707:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2426,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "707:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "706:13:6"
+            },
+            "scope": 2501,
+            "src": "624:96:6",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "20e42d30",
+            "id": 2436,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCellLastTeamEarningsPerStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2432,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2431,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2436,
+                  "src": "767:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2430,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "767:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "766:17:6"
+            },
+            "returnParameters": {
+              "id": 2435,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2434,
+                  "mutability": "mutable",
+                  "name": "lastTotalEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2436,
+                  "src": "807:33:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2433,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "807:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "806:35:6"
+            },
+            "scope": 2501,
+            "src": "726:116:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "7bbe0db7",
+            "id": 2443,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2438,
+                  "mutability": "mutable",
+                  "name": "_grade",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2443,
+                  "src": "866:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2437,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "866:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "865:14:6"
+            },
+            "returnParameters": {
+              "id": 2442,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2441,
+                  "mutability": "mutable",
+                  "name": "stake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2443,
+                  "src": "903:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2440,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "903:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "902:13:6"
+            },
+            "scope": 2501,
+            "src": "848:68:6",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5d09abbe",
+            "id": 2450,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTeamStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2446,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2445,
+                  "mutability": "mutable",
+                  "name": "team",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2450,
+                  "src": "944:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2444,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "944:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "943:12:6"
+            },
+            "returnParameters": {
+              "id": 2449,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2448,
+                  "mutability": "mutable",
+                  "name": "teamStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2450,
+                  "src": "979:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2447,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "979:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "978:19:6"
+            },
+            "scope": 2501,
+            "src": "922:76:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "463ead81",
+            "id": 2459,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTeamEarnings",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2453,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2452,
+                  "mutability": "mutable",
+                  "name": "team",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2459,
+                  "src": "1029:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2451,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1029:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1028:12:6"
+            },
+            "returnParameters": {
+              "id": 2458,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2455,
+                  "mutability": "mutable",
+                  "name": "teamEarnings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2459,
+                  "src": "1064:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2454,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1064:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2457,
+                  "mutability": "mutable",
+                  "name": "teamEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2459,
+                  "src": "1086:28:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2456,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1086:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1063:52:6"
+            },
+            "scope": 2501,
+            "src": "1004:112:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0588f7e9",
+            "id": 2470,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllTeamEarnings",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2460,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1149:2:6"
+            },
+            "returnParameters": {
+              "id": 2469,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2464,
+                  "mutability": "mutable",
+                  "name": "teamEarnings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "1175:30:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2461,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1175:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2463,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2462,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1183:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1175:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2468,
+                  "mutability": "mutable",
+                  "name": "teamEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "1207:38:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2465,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1207:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2467,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2466,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1215:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1207:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1174:72:6"
+            },
+            "scope": 2501,
+            "src": "1122:125:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e70b84a9",
+            "id": 2477,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllTeamStakes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2471,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1278:2:6"
+            },
+            "returnParameters": {
+              "id": 2476,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2475,
+                  "mutability": "mutable",
+                  "name": "teamStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2477,
+                  "src": "1304:27:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2472,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1304:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2474,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2473,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1312:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1304:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1303:29:6"
+            },
+            "scope": 2501,
+            "src": "1253:80:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e06e63a8",
+            "id": 2484,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTeam",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2482,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2479,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2484,
+                  "src": "1356:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2478,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1356:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2481,
+                  "mutability": "mutable",
+                  "name": "_newTeam",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2484,
+                  "src": "1373:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2480,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1373:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1355:33:6"
+            },
+            "returnParameters": {
+              "id": 2483,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1397:0:6"
+            },
+            "scope": 2501,
+            "src": "1339:59:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "3b3e3558",
+            "id": 2495,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setAllTeamEarnings",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2493,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2488,
+                  "mutability": "mutable",
+                  "name": "_newTeamTotalEarnings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2495,
+                  "src": "1442:39:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2485,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1442:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2487,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2486,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1450:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1442:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2492,
+                  "mutability": "mutable",
+                  "name": "_newTeamTotalEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2495,
+                  "src": "1493:47:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2489,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1493:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2491,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2490,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1501:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1493:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1431:116:6"
+            },
+            "returnParameters": {
+              "id": 2494,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1556:0:6"
+            },
+            "scope": 2501,
+            "src": "1404:153:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0d4dd4af",
+            "id": 2500,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateCellLastTeamEarningsPerStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2498,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2497,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2500,
+                  "src": "1607:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2496,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1607:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1606:17:6"
+            },
+            "returnParameters": {
+              "id": 2499,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1632:0:6"
+            },
+            "scope": 2501,
+            "src": "1563:70:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2502,
+        "src": "197:1439:6"
+      }
+    ],
+    "src": "46:1590:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/luke/BSC-Grid/Solidity/contracts/IGridCell.sol",
+    "exportedSymbols": {
+      "IERC165": [
+        5090
+      ],
+      "IERC721": [
+        4091
+      ],
+      "IERC721Enumerable": [
+        4478
+      ],
+      "IGridCell": [
+        2501
+      ]
+    },
+    "id": 2502,
+    "license": "GPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2388,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".1"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "46:23:6"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "id": 2389,
+        "nodeType": "ImportDirective",
+        "scope": 2502,
+        "sourceUnit": 4479,
+        "src": "73:79:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2391,
+              "name": "IERC721Enumerable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 4478,
+              "src": "220:17:6"
+            },
+            "id": 2392,
+            "nodeType": "InheritanceSpecifier",
+            "src": "220:17:6"
+          }
+        ],
+        "contractDependencies": [
+          4091,
+          4478,
+          5090
+        ],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2390,
+          "nodeType": "StructuredDocumentation",
+          "src": "156:41:6",
+          "text": "@title GridCell Interface Detection"
+        },
+        "fullyImplemented": false,
+        "id": 2501,
+        "linearizedBaseContracts": [
+          2501,
+          4478,
+          4091,
+          5090
+        ],
+        "name": "IGridCell",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "206848f6",
+            "id": 2409,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCell",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2394,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "262:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2393,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "262:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "261:17:6"
+            },
+            "returnParameters": {
+              "id": 2408,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2397,
+                  "mutability": "mutable",
+                  "name": "cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "312:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2396,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2401,
+                  "mutability": "mutable",
+                  "name": "coordinates",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "338:27:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_int32_$2_memory_ptr",
+                    "typeString": "int32[2]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2398,
+                      "name": "int32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "338:5:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_int32",
+                        "typeString": "int32"
+                      }
+                    },
+                    "id": 2400,
+                    "length": {
+                      "hexValue": "32",
+                      "id": 2399,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "344:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_2_by_1",
+                        "typeString": "int_const 2"
+                      },
+                      "value": "2"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "338:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_int32_$2_storage_ptr",
+                      "typeString": "int32[2]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2403,
+                  "mutability": "mutable",
+                  "name": "properties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "377:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2402,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "377:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2405,
+                  "mutability": "mutable",
+                  "name": "team",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "407:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2404,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "407:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2407,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2409,
+                  "src": "429:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2406,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "429:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "301:148:6"
+            },
+            "scope": 2501,
+            "src": "245:205:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "b408b355",
+            "id": 2420,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createCell",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2416,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2411,
+                  "mutability": "mutable",
+                  "name": "_initialProperties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "486:26:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "486:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2413,
+                  "mutability": "mutable",
+                  "name": "_initialTeam",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "524:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2412,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "524:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2415,
+                  "mutability": "mutable",
+                  "name": "_initialOwner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "554:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2414,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "554:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "475:107:6"
+            },
+            "returnParameters": {
+              "id": 2419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2418,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2420,
+                  "src": "601:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2417,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "601:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "600:17:6"
+            },
+            "scope": 2501,
+            "src": "456:162:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "a7278549",
+            "id": 2429,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCellGrade",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2425,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2422,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2429,
+                  "src": "646:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2421,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "646:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2424,
+                  "mutability": "mutable",
+                  "name": "_properties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2429,
+                  "src": "663:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2423,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "663:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "645:38:6"
+            },
+            "returnParameters": {
+              "id": 2428,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2427,
+                  "mutability": "mutable",
+                  "name": "grade",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2429,
+                  "src": "707:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2426,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "707:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "706:13:6"
+            },
+            "scope": 2501,
+            "src": "624:96:6",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "20e42d30",
+            "id": 2436,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCellLastTeamEarningsPerStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2432,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2431,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2436,
+                  "src": "767:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2430,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "767:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "766:17:6"
+            },
+            "returnParameters": {
+              "id": 2435,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2434,
+                  "mutability": "mutable",
+                  "name": "lastTotalEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2436,
+                  "src": "807:33:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2433,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "807:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "806:35:6"
+            },
+            "scope": 2501,
+            "src": "726:116:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "7bbe0db7",
+            "id": 2443,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2438,
+                  "mutability": "mutable",
+                  "name": "_grade",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2443,
+                  "src": "866:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2437,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "866:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "865:14:6"
+            },
+            "returnParameters": {
+              "id": 2442,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2441,
+                  "mutability": "mutable",
+                  "name": "stake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2443,
+                  "src": "903:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2440,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "903:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "902:13:6"
+            },
+            "scope": 2501,
+            "src": "848:68:6",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5d09abbe",
+            "id": 2450,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTeamStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2446,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2445,
+                  "mutability": "mutable",
+                  "name": "team",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2450,
+                  "src": "944:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2444,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "944:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "943:12:6"
+            },
+            "returnParameters": {
+              "id": 2449,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2448,
+                  "mutability": "mutable",
+                  "name": "teamStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2450,
+                  "src": "979:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2447,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "979:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "978:19:6"
+            },
+            "scope": 2501,
+            "src": "922:76:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "463ead81",
+            "id": 2459,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTeamEarnings",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2453,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2452,
+                  "mutability": "mutable",
+                  "name": "team",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2459,
+                  "src": "1029:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2451,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1029:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1028:12:6"
+            },
+            "returnParameters": {
+              "id": 2458,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2455,
+                  "mutability": "mutable",
+                  "name": "teamEarnings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2459,
+                  "src": "1064:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2454,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1064:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2457,
+                  "mutability": "mutable",
+                  "name": "teamEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2459,
+                  "src": "1086:28:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2456,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1086:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1063:52:6"
+            },
+            "scope": 2501,
+            "src": "1004:112:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0588f7e9",
+            "id": 2470,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllTeamEarnings",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2460,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1149:2:6"
+            },
+            "returnParameters": {
+              "id": 2469,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2464,
+                  "mutability": "mutable",
+                  "name": "teamEarnings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "1175:30:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2461,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1175:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2463,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2462,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1183:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1175:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2468,
+                  "mutability": "mutable",
+                  "name": "teamEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "1207:38:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2465,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1207:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2467,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2466,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1215:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1207:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1174:72:6"
+            },
+            "scope": 2501,
+            "src": "1122:125:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e70b84a9",
+            "id": 2477,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllTeamStakes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2471,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1278:2:6"
+            },
+            "returnParameters": {
+              "id": 2476,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2475,
+                  "mutability": "mutable",
+                  "name": "teamStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2477,
+                  "src": "1304:27:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2472,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1304:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2474,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2473,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1312:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1304:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1303:29:6"
+            },
+            "scope": 2501,
+            "src": "1253:80:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e06e63a8",
+            "id": 2484,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTeam",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2482,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2479,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2484,
+                  "src": "1356:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2478,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1356:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2481,
+                  "mutability": "mutable",
+                  "name": "_newTeam",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2484,
+                  "src": "1373:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 2480,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1373:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1355:33:6"
+            },
+            "returnParameters": {
+              "id": 2483,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1397:0:6"
+            },
+            "scope": 2501,
+            "src": "1339:59:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "3b3e3558",
+            "id": 2495,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setAllTeamEarnings",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2493,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2488,
+                  "mutability": "mutable",
+                  "name": "_newTeamTotalEarnings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2495,
+                  "src": "1442:39:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2485,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1442:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2487,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2486,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1450:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1442:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2492,
+                  "mutability": "mutable",
+                  "name": "_newTeamTotalEarningsPerStake",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2495,
+                  "src": "1493:47:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$8_memory_ptr",
+                    "typeString": "uint256[8]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2489,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1493:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2491,
+                    "length": {
+                      "hexValue": "38",
+                      "id": 2490,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1501:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_8_by_1",
+                        "typeString": "int_const 8"
+                      },
+                      "value": "8"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "1493:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$8_storage_ptr",
+                      "typeString": "uint256[8]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1431:116:6"
+            },
+            "returnParameters": {
+              "id": 2494,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1556:0:6"
+            },
+            "scope": 2501,
+            "src": "1404:153:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0d4dd4af",
+            "id": 2500,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateCellLastTeamEarningsPerStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2498,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2497,
+                  "mutability": "mutable",
+                  "name": "_cellId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2500,
+                  "src": "1607:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2496,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1607:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1606:17:6"
+            },
+            "returnParameters": {
+              "id": 2499,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1632:0:6"
+            },
+            "scope": 2501,
+            "src": "1563:70:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2502,
+        "src": "197:1439:6"
+      }
+    ],
+    "src": "46:1590:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.1+commit.df193b15.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-25T22:30:16.700Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "approve(address,uint256)": {
+        "details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
+      },
+      "balanceOf(address)": {
+        "details": "Returns the number of tokens in ``owner``'s account."
+      },
+      "getApproved(uint256)": {
+        "details": "Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist."
+      },
+      "isApprovedForAll(address,address)": {
+        "details": "Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}"
+      },
+      "ownerOf(uint256)": {
+        "details": "Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist."
+      },
+      "safeTransferFrom(address,address,uint256)": {
+        "details": "Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
+      },
+      "safeTransferFrom(address,address,uint256,bytes)": {
+        "details": "Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
+      },
+      "setApprovalForAll(address,bool)": {
+        "details": "Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event."
+      },
+      "supportsInterface(bytes4)": {
+        "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+      },
+      "tokenByIndex(uint256)": {
+        "details": "Returns a token ID at a given `index` of all the tokens stored by the contract. Use along with {totalSupply} to enumerate all tokens."
+      },
+      "tokenOfOwnerByIndex(address,uint256)": {
+        "details": "Returns a token ID owned by `owner` at a given `index` of its token list. Use along with {balanceOf} to enumerate all of ``owner``'s tokens."
+      },
+      "totalSupply()": {
+        "details": "Returns the total amount of tokens stored by the contract."
+      },
+      "transferFrom(address,address,uint256)": {
+        "details": "Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event."
+      }
+    },
+    "title": "GridCell Interface Detection",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
